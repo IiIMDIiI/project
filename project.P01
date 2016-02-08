@@ -1,0 +1,141 @@
+#include <string>
+#include <fstream>
+#include <iostream>
+#include<sstream>
+using namespace std;
+string carrier[1500];
+int cod[1500];
+bool Chek(string a) {//يتأكد من انه موجود ولا لا 
+	for (int i = 0; i < 1500; i++) {
+		if (a == carrier[i]) return true;
+		else return false;
+	}
+};
+
+
+
+void PastAirLain(string nam, int b) {//يحفظ البيانات
+	bool e;
+	e = Chek(nam);
+	if (e) {
+		for (int i = 0; i < 1500; i++) {
+			if (nam == carrier[i]) {
+				cod[i] += b;
+				break;
+			}
+		}
+	}
+	
+};
+
+
+
+string Move(int year, int month, int day)
+{
+	int Year, Month, DayOfMonth, DayOfWeek;//From 1 To 4
+	string DepTime;//5
+	int CRSDepTime;//6
+	string ArrTime;//7
+	int CRSArrTime;//8
+	string UniqueCarrier;//9
+	int FlightNum;//10
+	string TailNum, ActualElapsedTime;//11 12
+	int CRSElapsedTime;//13
+	string AirTime, ArrDelay, DepDelay, Origin, Dest;//From 14 To 18
+	int Distance, Taxiln, TaxiOut, Cancelled;//From 19 To 22
+	string CancellationCode;//23
+	int Diverted;//24
+	string CarrierDealy, WeatherDelay, NASDelay,SecutiyDelay, LateAirceaftDelay;//From 25 To 29
+	
+	ifstream reader("C:\\Users\\MD\\Desktop\\2000.txt");//To Rede from file
+	/*string a[30];
+	cout << "Length of array = " << (sizeof(a) / sizeof(a)) << endl;
+	*/
+	if (!reader) {//To Chek is open or no
+		cout << "Error opening input file" << endl;
+		return 0;//Strop 
+	}
+
+	for (int i = 0;i<1; i++) {
+		/*reader.get(letter);
+		cout << letter;*/
+		
+		
+		/*getline( reader , line ) ;
+		cout << line << endl ;*/
+		reader >> Year;//1
+		reader >> Month;//2
+		reader >> DayOfMonth;//3
+		reader >> DayOfWeek;//4
+		reader >> DepTime;//5
+		reader >> CRSDepTime;//6
+		reader >> ArrTime;//7
+		reader >> CRSArrTime;//8
+		reader >> UniqueCarrier;//9
+		reader >> FlightNum;//10
+		reader >> TailNum;//11
+		reader >> ActualElapsedTime;//12
+		reader >> CRSElapsedTime;//13
+		reader >> AirTime;//14
+		reader >> ArrDelay;//15
+		reader >> DepDelay;//16
+		reader >> Origin;//17
+		reader >> Dest;//18
+		reader >> Distance;//19
+		reader >> Taxiln;//20
+		reader >> TaxiOut;//21
+		reader >> Cancelled;//22
+		reader >> CancellationCode;//23
+		reader >> Diverted;//24
+		reader >> CarrierDealy;//25
+		reader >> WeatherDelay;//26
+		reader >> NASDelay;//27
+		reader >> SecutiyDelay;//28
+		reader >> LateAirceaftDelay;//29
+		/*cout << Year << " " << Month << " " << DayOfMonth << " " << DayOfWeek << " " << DepTime << " " << CRSDepTime << " " << ArrTime << " " ;
+		cout << CRSArrTime << " " << UniqueCarrier << " " << FlightNum << " " << TailNum << " " << ActualElapsedTime << " " << CRSElapsedTime <<" " ;
+		cout << AirTime << " " << ArrDelay << " " << DepDelay << " " << Origin << " " << Dest << " " << Distance << " " << Taxiln << " " << TaxiOut  <<" ";
+		cout << Cancelled << " " << CancellationCode << " " <<Diverted<<" " <<CarrierDealy<<" "<< WeatherDelay << " " << NASDelay << " " << SecutiyDelay << " " << LateAirceaftDelay<<" "<<endl ;
+		*/
+		if (Year == year || year == 0) {
+			if (Month == month || month == 0) {
+				if (DayOfMonth == day || day == 0) {
+					int a;
+					istringstream conv(ArrDelay);
+					conv >> a;
+					PastAirLain(UniqueCarrier, a);
+
+				}
+			}
+		}
+		
+
+		
+	
+	}
+
+	reader.close();//To Close read file
+	getchar();//To Stop
+	return "Dan";
+};
+
+
+	
+
+	int main()
+	{
+		ifstream saa("‪C:\\Users\\MD\\Desktop\\carriers.txt");
+		if (!saa) {
+			cout << "Erorr";
+			return 0;
+		}
+		for (int m = 0; m < 1; m++) {
+			string a;
+			saa >> a;
+			cout << a;
+		}
+		saa.close();
+		getchar();
+		return 0;
+
+	}
