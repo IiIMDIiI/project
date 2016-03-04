@@ -1,0 +1,349 @@
+#include <string>
+#include <fstream>
+#include <iostream>
+#include<sstream>
+using namespace std;
+string carrier[1491]; 
+int codDelay[1491];
+/*bool Chek(string a) {//يتأكد من انه موجود ولا لا 
+	for (int i = 0; i < 1491; i++) {
+		if (a == carrier[i]) return true;
+		else return false;
+	}
+};
+*/
+
+
+void PastAirLain(string nam, int b) {//يحفظ البيانات
+	//bool e;
+	//e = Chek(nam);
+	//if (e) {
+	for (int i = 0; i < 1491; i++) {
+		if (nam == carrier[i]) {
+			codDelay[i] += b;
+			break;
+		}
+	}
+	//}
+	/*else {
+		for (int i = 0; i < 1491; i++) {
+			if (carrier[i].empty) {
+				cout << "The air line Not found";
+			}*/
+		
+
+};
+
+//} ;
+
+
+void Move(int year, int month, int day)
+{
+	ifstream reader("C:\\Users\\MD\\Desktop\\ProjectData\\1987.txt");
+	/*switch (year) {//To Rede from file
+		case 1987: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\1987.txt");
+			cout << "Read From File Year =  1987" << endl;
+		break;
+		}
+		case 1988: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1988.txt");
+			cout << "Read From File Year =  1988" << endl;
+			break;
+		}
+		case 1989: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1989.txt");
+			cout << "Read From File Year =  1989" << endl;
+			break;
+		}
+		case 1990: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1990.txt");
+			cout << "Read From File Year =  1990" << endl;
+			break;
+		}
+		case 1991: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1991.txt");
+			cout << "Read From File Year =  1991" << endl;
+			break;
+		}
+		case 1992: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1992.txt");
+			cout << "Read From File Year =  1992" << endl;
+			break;
+		}
+		case 1993: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1993.txt");
+			cout << "Read From File Year =  1993" << endl;
+			break;
+		}
+		case 1994: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1994.txt");
+			cout << "Read From File Year =  1994" << endl;
+			break;
+		}
+		case 1995: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1995.txt");
+			cout << "Read From File Year =  1995" << endl;
+			break;
+		}
+		case 1996: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1996.txt");
+			cout << "Read From File Year =  1996" << endl;
+			break;
+		}
+		case 1997: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1997.txt");
+			cout << "Read From File Year =  1997" << endl;
+			break;
+		}
+		case 1998: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1998.txt");
+			cout << "Read From File Year =  1998" << endl;
+			break;
+		}
+		case 1999: {
+			ifstream reader ("‪C:\\Users\\MD\\Desktop\\ProjectData\\1999.txt");
+			cout << "Read From File Year =  1999" << endl;
+			break;
+		}
+		case 2000:{
+			ifstream reader ("‪C:\\Users\\MD\Desktop\\ProjectData\\2000.txt");
+			cout << "Read From File Year =  2000" << endl;
+			break;
+		}
+		case 2001: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2001.txt");
+			cout << "Read From File Year =  2001" << endl;
+			break;
+		}
+		case 2002: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2002.txt");
+			cout << "Read From File Year =  2002" << endl;
+			break;
+		}
+		case 2003: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2003.txt");
+			cout << "Read From File Year =  2003" << endl;
+			break;
+		}
+		case 2004: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2004.txt");
+			cout << "Read From File Year =  2004" << endl;
+			break;
+		}
+		case 2005:
+		{
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2005.txt");
+			cout << "Read From File Year =  2005" << endl;
+			break;
+		}
+		case 2006: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2006.txt");
+			cout << "Read From File Year =  2006" << endl;
+			break;
+		}
+		case 2007: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2007.txt");
+			cout << "Read From File Year =  2007" << endl;
+			break;
+		}
+		case 2008: {
+			ifstream reader ("C:\\Users\\MD\\Desktop\\ProjectData\\2008.txt");
+			cout << "Read From File Year =  2008" << endl;
+			break;
+		}
+		default: {
+					   ifstream reader("C:\\Users\\MD\\Desktop\\ProjectData\\2008.txt");
+					   cout << "IF make same error???????" << endl;
+					   break;
+	}
+	}//ان كان صفر فا فيه فور تمشي عليها واحد واحد يدخل كل كيس ويفتح ملف ملف ويبدا يقراها كلها ان كان محدد سنه يدخل على طول 
+	*/
+	int Year, Month, DayOfMonth, DayOfWeek;//From 1 To 4
+	string DepTime;//5
+	int CRSDepTime;//6
+	string ArrTime;//7
+	int CRSArrTime;//8
+	string UniqueCarrier;//9
+	int FlightNum;//10
+	string TailNum, ActualElapsedTime;//11 12
+	int CRSElapsedTime;//13
+	string AirTime, ArrDelay, DepDelay, Origin, Dest;//From 14 To 18
+	int Distance, Taxiln, TaxiOut, Cancelled;//From 19 To 22
+	string CancellationCode;//23
+	int Diverted;//24
+	string CarrierDealy, WeatherDelay, NASDelay,SecutiyDelay, LateAirceaftDelay;//From 25 To 29
+	
+	
+	/*string a[30];
+	cout << "Length of array = " << (sizeof(a) / sizeof(a)) << endl;
+	*/
+	if (!reader) {//To Chek is open or no
+		cout << "Error opening input file" << endl;
+		getchar();//Strop
+		
+	}
+
+	for (int i = 0;i<1000; i++) {
+		//cout << "Now Read File for the Select year and month and day " << endl; لتاكد انه دخل هنا
+		/*reader.get(letter);
+		cout << letter;*/
+		
+		
+		/*getline( reader , line ) ;
+		cout << line << endl ;*/
+		reader >> Year;//1
+		reader >> Month;//2
+		reader >> DayOfMonth;//3
+		reader >> DayOfWeek;//4
+		reader >> DepTime;//5
+		reader >> CRSDepTime;//6
+		reader >> ArrTime;//7
+		reader >> CRSArrTime;//8
+		reader >> UniqueCarrier;//9
+		reader >> FlightNum;//10
+		reader >> TailNum;//11
+		reader >> ActualElapsedTime;//12
+		reader >> CRSElapsedTime;//13
+		reader >> AirTime;//14
+		reader >> ArrDelay;//15
+		reader >> DepDelay;//16
+		reader >> Origin;//17
+		reader >> Dest;//18
+		reader >> Distance;//19
+		reader >> Taxiln;//20
+		reader >> TaxiOut;//21
+		reader >> Cancelled;//22
+		reader >> CancellationCode;//23
+		reader >> Diverted;//24
+		reader >> CarrierDealy;//25
+		reader >> WeatherDelay;//26
+		reader >> NASDelay;//27
+		reader >> SecutiyDelay;//28
+		reader >> LateAirceaftDelay;//29
+		cout << Year << " " << Month << " " << DayOfMonth << " " << DayOfWeek << " " << DepTime << " " << CRSDepTime << " " << ArrTime << " " ;
+		cout << CRSArrTime << " " << UniqueCarrier << " " << FlightNum << " " << TailNum << " " << ActualElapsedTime << " " << CRSElapsedTime <<" " ;
+		cout << AirTime << " " << ArrDelay << " " << DepDelay << " " << Origin << " " << Dest << " " << Distance << " " << Taxiln << " " << TaxiOut  <<" ";
+		cout << Cancelled << " " << CancellationCode << " " <<Diverted<<" " <<CarrierDealy<<" "<< WeatherDelay << " " << NASDelay << " " << SecutiyDelay << " " << LateAirceaftDelay<<" "<<endl ;
+		
+		
+			if (Month == month || month == 0) {//يبدا يقارن الشهر واليوم ويمشي عليها واحد واحد طبعا مايحتاج السنه لها بتكون محدده من فتح الملف
+				//cout << "Month" << endl;
+				if (DayOfMonth == day || day == 0) {
+					//cout << "Day " << endl;
+					int a;
+					istringstream conv(ArrDelay);//Convert to Integer
+					conv >> a;
+					PastAirLain(UniqueCarrier, a);
+
+				}
+			}
+		
+	
+	}
+
+	reader.close();//To Close read file
+	getchar();//To Stop Delet
+	
+};
+void red () {
+
+	for (int i = 1987; i < 2009; i++) {
+		Move(i, 0, 0);
+	}
+
+
+}
+void StartForStor() {//To Fill the cirer and the code (Firest)
+	string te;
+	char a;
+	ifstream re;
+	string w;
+	re.open("C:\\Users\\MD\\Desktop\\carriers.txt");
+	if (!re) {
+		cout << "Erorr";
+		getchar();
+		}
+	
+		for (int m = 0;m<1491; m++) {
+			re.get(a);
+			w += "\"";
+			for (; a != ',';) {
+				re.get(a);
+				if (a == ',') {
+					w += "\"";
+					break;
+				}
+				w += a;
+
+			}
+			getline(re, te);
+
+			carrier[m] = w;
+			w = "";
+			//cout << carrier[m] << endl;
+		}
+	
+	re.close();
+	
+
+}
+string ThePest() {
+	int min= 0;
+	int indx = 0;
+	min = codDelay[indx];
+	for (int i = 1; i <= 1491; i++) {
+		//cout << carrier[i] << " " << codDelay[i] << endl;
+		if (min > codDelay[i]) {
+			cout << i;
+			min = codDelay[i];
+			indx = i;
+		}
+	}
+	cout << carrier[indx];
+		return carrier[indx];
+
+	}
+		
+
+
+	
+
+	int main()
+
+	{
+		int y=0, m=0, d=0;
+		StartForStor();//Firest
+		/*for (int i = 0; i < 1491; i++) {
+			cout << carrier[i] << endl;
+		}طباعة تجربة لتاكد فقط*/
+		cout << "Selected Year : ";
+			cin >> y;
+			if (y != 0) {
+				cout << "Selected Monthe : ";
+				cin >> m;
+				if (m != 0) {
+					cout << "Selected Day : ";
+					cin >> d;
+				}
+			}
+
+			if (y == 0) {//IF he select year equal zero 
+				red();
+			}
+			else {
+				cout << "Send information" << endl;
+				Move(y, m, d);
+			}
+			
+			string minmim;
+			minmim = ThePest();
+			cout << minmim << endl;
+
+
+		
+			getchar();
+
+		return 0;
+
+	}
